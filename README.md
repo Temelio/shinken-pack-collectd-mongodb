@@ -20,12 +20,12 @@ This pack depends to shinken-pack-collectd-base to work
 
 ### Services
 
-| Service name                    | Description             | Value specification                            | DS        | Consolidation | Warning variable | Critical variable | Duplicate_foreach variable |
-|---------------------------------|-------------------------|------------------------------------------------|-----------|---------------|------------------|-------------------|----------------------------|
-| MongoDB $KEY$ processes         | Check MongoDB processes | processes-$VALUE1$/ps_count                    | processes | none          | $VALUE2$         | $VALUE3$          | _mongodb_processes         |
-| MongoDB - $KEY$ listen $VALUE1$ | Check listening ports   | tcpconns-$VALUE1$-local/tcp_connections-LISTEN | value     | none          | $VALUE2$         | $VALUE3$          | _mongodb_listen            |
+| Service name              | Description             | Value specification                            | DS        | Consolidation | Warning variable | Critical variable | Duplicate_foreach variable |
+|---------------------------|-------------------------|------------------------------------------------|-----------|---------------|------------------|-------------------|----------------------------|
+| MongoDB - $KEY$ processes | Check MongoDB processes | processes-$VALUE1$/ps_count                    | processes | none          | $VALUE2$         | $VALUE3$          | _mongodb_processes         |
+| MongoDB - $KEY$           | Check listening ports   | tcpconns-$VALUE1$-local/tcp_connections-LISTEN | value     | none          | $VALUE2$         | $VALUE3$          | _mongodb_listen            |
 
 ## Default values
 
     _mongodb_processes                          mongod $(mongod)$$(1:1)$$(1:1)$
-    _mongodb_listen                             mongod $(27017)$$(1:1)$$(1:1)$
+    _mongodb_listen                             mongod listen 27017 $(27017)$$(1:1)$$(1:1)$
